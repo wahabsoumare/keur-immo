@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ a.titre }} — {{ site_name }}</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-title"><a href="../index.html">{{ site_name }}</a></div>
+</header>
+
+<main class="annonce-detail">
+  <a class="back-link" href="../index.html">&larr; Retour aux annonces</a>
+
+  <span class="ref">{{ a.ref }}</span>
+  <h1>{{ a.titre }}</h1>
+  <p class="meta localisation">{{ a.localisation_texte }}</p>
+  <span class="prix">{{ a.prix_affiche }}</span>
+
+  <ul class="caracteristiques">
+    <li>Type de bien : {{ a.type_bien }}</li>
+    {% if a.surface_affichee %}<li>Surface : {{ a.surface_affichee }}</li>{% endif %}
+    {% if a.pieces_affichees %}<li>Nombre de pièces : {{ a.pieces_affichees }}</li>{% endif %}
+  </ul>
+
+  {% if a.description %}<p class="description">{{ a.description }}</p>{% endif %}
+
+  <p class="contact">Contact : {{ a.agent }} — {{ a.telephone }}</p>
+  <p class="meta date-publication">Publié le {{ a.date_affichee }}</p>
+</main>
+
+<footer>
+  Site fictif créé à des fins pédagogiques (exercice de web scraping) — aucun lien avec une société existante.
+</footer>
+</body>
+</html>

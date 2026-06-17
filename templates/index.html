@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site_name }} — Petites annonces immobilières au Sénégal</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div>
+    <div class="site-title">{{ site_name }}</div>
+    <div class="site-tagline">Petites annonces immobilières — Sénégal</div>
+  </div>
+  <div class="counter">{{ annonces|length }} annonces en ligne</div>
+</header>
+
+<main>
+  {% for a in annonces %}
+  <article class="annonce-card">
+    <div class="annonce-card-main">
+      <span class="ref">{{ a.ref }}</span>
+      <h2><a href="annonces/{{ a.slug }}.html">{{ a.titre }}</a></h2>
+      <div class="meta">{{ a.type_bien }} — {{ a.ville }}{% if a.quartier %}, {{ a.quartier }}{% endif %}</div>
+    </div>
+    <div class="prix">{{ a.prix_affiche }}</div>
+  </article>
+  {% endfor %}
+</main>
+
+<footer>
+  Site fictif créé à des fins pédagogiques (exercice de web scraping) — aucun lien avec une société existante.
+</footer>
+</body>
+</html>
